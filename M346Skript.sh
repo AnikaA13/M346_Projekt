@@ -3,7 +3,7 @@ import json
 import boto3
  
 def lambda_handler(event, context):
-    targetbucket = 'BUCKET NAME'
+    targetbucket = 'output-bucket346'
     csvkey = 'FILENAME.csv'
     jsonkey = 'FILENAME.json'
     s3 = boto3.resource('s3')
