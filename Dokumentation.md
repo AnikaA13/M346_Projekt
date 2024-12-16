@@ -49,3 +49,13 @@ Im AWS-Lab haben wir zwei neue Buckets erstellt. Ein Bucket heisst input-bucket3
 Auf diesem Bild seht man die Allzweck-Buckets. Da sieht man genau die zwei Buckets die wir erstellt haben.
 
 ![Bucket List](./Bilder/BucketList.png)
+
+
+
+### spöter mömmer da no schöner mache
+dotnet add package AWSSDK.S3
+dotnet add package Amazon.Lambda.Core
+dotnet add package Amazon.Lambda.S3Events
+dotnet add package Amazon.Lambda.Serialization.SystemTextJson
+
+in datei von Projekt einfügen damit nötige references für code gemacht werden können
