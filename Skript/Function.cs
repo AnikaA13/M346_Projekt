@@ -2,6 +2,7 @@ using Amazon.Lambda.Core;
 using Amazon.Lambda.S3Events;
 using Amazon.S3;
 using Amazon.S3.Model;
+using System.Text.Json;
 
 namespace M346
 {
@@ -29,6 +30,23 @@ namespace M346
 
         //usefinde wie i csv zu json mache chan
 
+        var lines = File.ReadAllLines(@"C:\file.txt");
+
+        var headers = lines[0].Split(',');
+        var json = new List<Dictionary<string, string>>();
+        for (int i = 1; i < lines.Length; i++)
+        {
+          var values = lines[i].Split(',');
+          var obj = new Dictionary<string, string>();
+
+          for (int j = 0; j < headers.Length; j++)
+          {
+            obj[headers[j]] = values[j];
+          }
+          json.Add(obj);
+        }
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        var finishedJson =  JsonSerializer.Serialize(json, options);
       }
       catch (Exception ex)
       {
