@@ -70,6 +70,8 @@ Wir hatten Schwierigkeiten mit den Berechtigungen der Lambda Funktion.
 Emilija hatte schwierigkeiten bei der genauen beschreibung der Schritte in der Dokumentation.
 
 #### Persönliche Reflexion Elisa
+Ich fand das Projekt gut lösbar, da wir die Aufgaben gut untereinander aufteilen konnten und so immer gut vorwärtsgekommen sind. Wie haben gut als Gruppe zusammengearbeitet, und konnten uns gut austauschen. Ich konnte meine Funktion ziemlich schnell erledigen, da es nur ein paar Suchanfragen gebraucht hat, bis ich die Informationen gefunden habe, welche ich gebraucht habe, und ich schon viel mit C# gearbeitet hat. Dannach musste ich ein bisschen warten, bis Anika das Skript fertig geschrieben hat, damit ich testen konnte ob mein Code auch funktioniert.
+Ich fand das Projekt spannend, und es hat mir definitiv geholfen, das Thema nochmal etwas besser zu verstehen, da ich mir jetzt alles besser vorstellen chan. Bei meiner Arbeit hatte ich keine grossen Schwierigkeiten, nur der Zeitdruck, den wir wegen den anderen Projekten und Prüfungen hatten.
 
 #### Persönliche Reflexion Anika
 
