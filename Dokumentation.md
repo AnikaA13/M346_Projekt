@@ -51,6 +51,20 @@ Auf diesem Bild seht man die Allzweck-Buckets. Da sieht man genau die zwei Bucke
 ![Bucket List](./Bilder/BucketList.png)
 
 
+## Prozess
+### Arbeitsverteilung
+Wir haben uns die Aufgaben untereinander aufgeteilt. Anika ist für das bash Skript verantwortlich, Elisa für die Lambda Funktion und Emilija für die Dokumentation. 
+
+### Reflexion
+
+#### Persönliche Reflexion Elisa
+
+#### Persönliche Reflexion Anika
+
+
+#### persönliche Reflexion Emilija
+
+
 
 ### spöter mömmer da no schöner mache
 dotnet add package AWSSDK.S3
