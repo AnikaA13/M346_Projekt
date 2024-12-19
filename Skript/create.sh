@@ -53,7 +53,7 @@ aws lambda create-function \
     --runtime dotnet6 \
     --zip-file "fileb://$zipName" \
     --handler "function::function.Function::FunctionHandler" \
-    --role "arn:aws:iam::role/LabRole" \
+    --role "arn:aws:iam::771565928131:role/LabRole" \
     --region "$region" || { echo "Fehler bei der Erstellung der Lambda-Funktion"; exit 1; }
 
 echo "Lambda Funktion \"$functionName\" wurde erstellt"
@@ -75,7 +75,7 @@ eventJson='{
     "LambdaFunctionConfigurations": [
         {
             "Id": "'"$functionName"'",
-            "LambdaFunctionArn": "arn:aws:lambda:'"$region"':function:'"$functionName"'",
+            "LambdaFunctionArn": "arn:aws:lambda:'"$region"':771565928131:function:'"$functionName"'",
             "Events": ["s3:ObjectCreated:*"],
             "Filter": {
                 "Key": {
