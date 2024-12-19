@@ -5,7 +5,7 @@ bucket1original="csv-to-json-in"
 bucket2original="csv-to-json-out"
 functionNameoriginal="Csv2JsonFunction"
 layerName="Csv2JsonLayer"
-region="eu-central-1"
+region="us-east-1"
 
 # Temporäre Dateien
 cs="function.cs"
@@ -36,6 +36,7 @@ done
 echo "Gefunden: $bucket1, $bucket2, $functionName"
 
 # Buckets erstellen
+# Buckets erstellen
 create_bucket() {
     aws s3 mb "s3://$1" &>/dev/null && echo "Bucket \"$1\" wurde erstellt"
     aws s3 wait bucket-exists --bucket "$1" &>/dev/null
@@ -45,7 +46,7 @@ create_bucket "$bucket1"
 create_bucket "$bucket2"
 
 # Lambda-Funktion erstellen
-zip -r "$zipName" "$cs" &>/dev/null
+zip -r "$zipName" "$cs" || { echo "Fehler beim Zippen der Datei $cs"; exit 1; }
 
 aws lambda create-function \
     --function-name "$functionName" \
@@ -53,7 +54,7 @@ aws lambda create-function \
     --zip-file "fileb://$zipName" \
     --handler "function::function.Function::FunctionHandler" \
     --role "arn:aws:iam::role/LabRole" \
-    --region "$region" &>/dev/null
+    --region "$region" || { echo "Fehler bei der Erstellung der Lambda-Funktion"; exit 1; }
 
 echo "Lambda Funktion \"$functionName\" wurde erstellt"
 
@@ -65,7 +66,7 @@ aws lambda add-permission \
     --action lambda:InvokeFunction \
     --statement-id s3invoke \
     --principal s3.amazonaws.com \
-    --source-arn "arn:aws:s3:::$bucket1" &>/dev/null
+    --source-arn "arn:aws:s3:::$bucket1" || { echo "Fehler beim Setzen der Berechtigungen für Lambda"; exit 1; }
 
 echo "Berechtigungen für Lambda-Funktion gesetzt"
 
@@ -89,7 +90,7 @@ eventJson='{
 
 aws s3api put-bucket-notification-configuration \
     --bucket "$bucket1" \
-    --notification-configuration "$eventJson" &>/dev/null
+    --notification-configuration "$eventJson" || { echo "Fehler beim Konfigurieren des S3-Triggers"; exit 1; }
 
 echo "S3-Trigger wurde konfiguriert"
 
