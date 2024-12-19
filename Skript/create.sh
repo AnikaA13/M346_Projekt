@@ -6,6 +6,7 @@ bucket2original="csv-to-json-out"
 functionNameoriginal="Csv2JsonFunction"
 layerName="Csv2JsonLayer"
 region="us-east-1"
+accountId=$(aws sts get-caller-identity --query "Account" --output text)
 
 # Temporäre Dateien
 cs="function.cs"
@@ -53,7 +54,7 @@ aws lambda create-function \
     --runtime dotnet6 \
     --zip-file "fileb://$zipName" \
     --handler "function::function.Function::FunctionHandler" \
-    --role "arn:aws:iam::771565928131:role/LabRole" \
+    --role "arn:aws:iam::${accountId}:role/LabRole" \
     --region "$region" || { echo "Fehler bei der Erstellung der Lambda-Funktion"; exit 1; }
 
 echo "Lambda Funktion \"$functionName\" wurde erstellt"
@@ -72,21 +73,27 @@ echo "Berechtigungen für Lambda-Funktion gesetzt"
 
 # S3-Trigger hinzufügen
 eventJson='{
-    "LambdaFunctionConfigurations": [
-        {
-            "Id": "'"$functionName"'",
-            "LambdaFunctionArn": "arn:aws:lambda:'"$region"':771565928131:function:'"$functionName"'",
-            "Events": ["s3:ObjectCreated:*"],
-            "Filter": {
-                "Key": {
-                    "FilterRules": [
-                        {"Name": "suffix", "Value": ".csv"}
-                    ]
-                }
+  "LambdaFunctionConfigurations": [
+    {
+      "Id": "'"$functionName"'",
+      "LambdaFunctionArn": "arn:aws:lambda:'"$region"':'"$accountId"':function:'"$functionName"'",
+      "Events": [
+        "s3:ObjectCreated:*"
+      ],
+      "Filter": {
+        "Key": {
+          "FilterRules": [
+            {
+              "Name": "suffix",
+              "Value": ".csv"
             }
+          ]
         }
-    ]
+      }
+    }
+  ]
 }'
+
 
 aws s3api put-bucket-notification-configuration \
     --bucket "$bucket1" \
