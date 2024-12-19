@@ -5,11 +5,10 @@ bucket1original="csv-to-json-in"
 bucket2original="csv-to-json-out"
 functionNameoriginal="Csv2JsonFunction"
 layerName="Csv2JsonLayer"
-region="us-east-1"
+region="eu-central-1"
 
 # Temporäre Dateien
 cs="function.cs"
-csTemp="function_temp.cs"
 zipName="function.zip"
 
 # Einzigartige Namen für Buckets und Lambda-Funktion finden
@@ -46,8 +45,6 @@ create_bucket "$bucket1"
 create_bucket "$bucket2"
 
 # Lambda-Funktion erstellen
-accountNumber=$(aws sts get-caller-identity | jq -r '.Account')
-
 zip -r "$zipName" "$cs" &>/dev/null
 
 aws lambda create-function \
@@ -55,7 +52,7 @@ aws lambda create-function \
     --runtime dotnet6 \
     --zip-file "fileb://$zipName" \
     --handler "function::function.Function::FunctionHandler" \
-    --role "arn:aws:iam::$accountNumber:role/LabRole" \
+    --role "arn:aws:iam::role/LabRole" \
     --region "$region" &>/dev/null
 
 echo "Lambda Funktion \"$functionName\" wurde erstellt"
@@ -77,7 +74,7 @@ eventJson='{
     "LambdaFunctionConfigurations": [
         {
             "Id": "'"$functionName"'",
-            "LambdaFunctionArn": "arn:aws:lambda:'"$region"':'"$accountNumber"':function:'"$functionName"'",
+            "LambdaFunctionArn": "arn:aws:lambda:'"$region"':function:'"$functionName"'",
             "Events": ["s3:ObjectCreated:*"],
             "Filter": {
                 "Key": {
