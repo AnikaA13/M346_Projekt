@@ -5,11 +5,18 @@
 - [M346-Projekt Dokumentation](#projekt-dokumentation)
   - [Inhalt](#inhalt)
   - [Markdown Basics](#markdown-basics)
-  - [Erste Schritte](#erste-schritte)
   - [Buckets](#buckets)
     - [Bilder](#bilder)
     - [Link](#link)
     - [Schrift](#schrift)
+  - [Erste Schritte](#erste-schritte)
+  - [Prozess](#prozess)
+  - [Arbeitsverteilung](#erste-schritte)
+  - [Reflexion](#erste-schritte)
+  - [Schwierigkeiten](#erste-schritte)
+  - [Persönliche Reflexion Elisa](#persönliche-reflexion-elisa)
+  - [Persönliche Reflexion Anika](#persönliche-reflexion-anika)
+  - [Persönliche Reflexion Emilija](#persönliche-reflexion-emilija)
 
 ## Markdown Basics
 
@@ -57,16 +64,18 @@ Wir haben uns die Aufgaben untereinander aufgeteilt. Anika ist für das bash Skr
 
 ### Reflexion
 Auch wenn wir ab und zu etwas Probleme gehabt haben, haben wir uns wenn möglich immer in der Gruppe geholfen, oder andere Gruppen gefragt. Es war eine gute Arbeitsstimmung und alle haben ihren Part gut beigetragen.
+
 ##### Schwierigkeiten
-Wir hatten Schwierigkeiten mit den Berechtigungen der Lambda Funktion.
+Wir hatten Schwierigkeiten mit den Berechtigungen der Lambda Funktion. 
+Emilija hatte schwierigkeiten bei der genauen beschreibung der Schritte in der Dokumentation.
 
 #### Persönliche Reflexion Elisa
 
 #### Persönliche Reflexion Anika
 
 
-#### persönliche Reflexion Emilija
-
+#### Persönliche Reflexion Emilija
+Ich war zuständig für die ganze Dokumentation des Projekts und habe mit Anika die Buckets erstellt. Für mich war es ab und zu ein wenig schwer die Dokumentation zu schreiben weil ich nicht alles schritt für schritt verfolgt habe. Ich habe ab und zu nachgefragt und Rückmeldung bekommen und so die Dokumentation verbessert. Man soll immer alles miteinander absprechen und nachfragen wenn man nicht weiter kommt. Ansonsten hat mir das ganze Projekt sehr viel spass gemacht und war eine tolle erfahrug und ich konnte mein Wissen erweitern.
 
 
 ### spöter mömmer da no schöner mache
