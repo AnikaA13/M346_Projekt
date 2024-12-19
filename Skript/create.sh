@@ -33,7 +33,7 @@ create_lambda_function() {
         --function-name "$functionName" \
         --runtime dotnet6 \
         --zip-file "fileb://$zipName" \
-        --handler "funktion::funktion.Function::FunctionHandler" \
+        --handler "function::function.Function::FunctionHandler" \
         --role "arn:aws:iam::$accountNumber:role/LabRole" \
         --region "$region" \
         --layers "$layer" &>/dev/null
