@@ -56,6 +56,9 @@ Auf diesem Bild seht man die Allzweck-Buckets. Da sieht man genau die zwei Bucke
 Wir haben uns die Aufgaben untereinander aufgeteilt. Anika ist für das bash Skript verantwortlich, Elisa für die Lambda Funktion und Emilija für die Dokumentation. 
 
 ### Reflexion
+Auch wenn wir ab und zu etwas Probleme gehabt haben, haben wir uns wenn möglich immer in der Gruppe geholfen, oder andere Gruppen gefragt. Es war eine gute Arbeitsstimmung und alle haben ihren Part gut beigetragen.
+##### Schwierigkeiten
+Wir hatten Schwierigkeiten mit den Berechtigungen der Lambda Funktion.
 
 #### Persönliche Reflexion Elisa
 
