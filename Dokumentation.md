@@ -54,6 +54,9 @@ Auf diesem Bild seht man die Allzweck-Buckets. Da sieht man genau die zwei Bucke
 
 ![Bucket List](./Bilder/BucketList.png)
 
+## Funktionen
+### Lamda Funktion
+
 
 ## Prozess
 ### Arbeitsverteilung
@@ -74,7 +77,9 @@ Ich fand das Projekt spannend, und es hat mir definitiv geholfen, das Thema noch
 
 
 #### Persönliche Reflexion Emilija
-Ich war zuständig für die ganze Dokumentation des Projekts und habe mit Anika die Buckets erstellt. Für mich war es ab und zu ein wenig schwer die Dokumentation zu schreiben weil ich nicht alles schritt für schritt verfolgt habe. Ich habe ab und zu nachgefragt und Rückmeldung bekommen und so die Dokumentation verbessert. Man soll immer alles miteinander absprechen und nachfragen wenn man nicht weiter kommt. Ansonsten hat mir das ganze Projekt sehr viel spass gemacht und war eine tolle erfahrug und ich konnte mein Wissen erweitern.
+Ich war für die gesamte Dokumentation des Projekts zuständig und habe gemeinsam mit Anika die Buckets erstellt. Dabei fiel es mir manchmal etwas schwer, die Dokumentation zu schreiben, da ich nicht alle Schritte im Detail mitverfolgt habe. Um sicherzustellen, dass die Dokumentation vollständig und korrekt ist, habe ich regelmässig nachgefragt und hilfreiches Feedback erhalten, das mir dabei geholfen hat, die Dokumentation zu verbessern und zu vervollständigen.
+
+Ich habe gelernt, wie wichtig es ist, alles im Team abzusprechen und nachzufragen, wenn man nicht weiterkommt. Insgesamt hat mir das gesamte Projekt sehr viel Spass gemacht. Es war eine tolle Erfahrung, bei der ich mein Wissen erweitern konnte und das Thema durch die praktische Arbeit besser verstanden habe.
 
 
 ### spöter mömmer da no schöner mache
