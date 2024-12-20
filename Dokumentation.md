@@ -7,10 +7,20 @@
   - [Markdown Basics](#markdown-basics)
   - [Buckets](#buckets)
   - [Erste Schritte](#erste-schritte)
+  - [Skripts](#skripts)
+  - [Bash-Skript](#bash-skript)
+  - [Ablauf des Bash-Skripts](#ablauf-des-bash-skripts)
+  - [Voraussetzungen](#voraussetzungen)
+  - [Parameter](#parameter)
+  - [Wichtige Funktionen](#wichtige-funkrionen)
+  - [Lambda Funktion](#lambda-funktion)
+  - [Ablauf der Lambda Funktion](#ablauf-der-lambda-funktion)
+  - [Voraussetzungen](#voraussetzungen)
+  - [Fazit](#fazit)
   - [Prozess](#prozess)
-  - [Arbeitsverteilung](#erste-schritte)
-  - [Reflexion](#erste-schritte)
-  - [Schwierigkeiten](#erste-schritte)
+  - [Arbeitsverteilung](#arbeitsverteilung)
+  - [Reflexion](#felexion)
+  - [Schwierigkeiten](#schwierigkeiten)
   - [Persönliche Reflexion Elisa](#persönliche-reflexion-elisa)
   - [Persönliche Reflexion Anika](#persönliche-reflexion-anika)
   - [Persönliche Reflexion Emilija](#persönliche-reflexion-emilija)
@@ -119,6 +129,7 @@ Mit _PutObjektAsync_ wird die JSON-Datei in den Ausgangs-Bucket _(output-bucket3
 
 ### Fazit
 Elisa hat die Lambda-Funktion erstell. Sie hat sich für die Programmiersprache C# entschieden da sie sich damit schon ein wenig auskennt. Die nötigen Informationen hat sie im Internet recherchiert und aus eigener Erfahrungen.
+
 ## Prozess
 ### Arbeitsverteilung
 Wir haben uns die Aufgaben untereinander aufgeteilt. Anika ist für das bash Skript verantwortlich, Elisa für die Lambda Funktion und Emilija für die Dokumentation. 
