@@ -22,7 +22,13 @@ while true; do
         break
     fi
     sleep 5
+    echo "JSON Datei ist nicht verfügbar"
 done
 
 # JSON-Datei herunterladen
-aws s3 cp "$s3JsonFile" "$localJsonFile" || { echo "Fehler beim Herunterladen der JSON-Datei"; exit
+aws s3 cp "$s3JsonFile" "$localJsonFile" || { echo "Fehler beim Herunterladen der JSON-Datei"; exit 1; }
+echo "JSON-Datei wurde heruntergeladen: $localJsonFile"
+
+# Abschlussmeldung
+echo ""
+echo "Test abgeschlossen!"
