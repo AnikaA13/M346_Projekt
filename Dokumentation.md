@@ -54,10 +54,71 @@ Auf diesem Bild seht man die Allzweck-Buckets. Da sieht man genau die zwei Bucke
 
 ![Bucket List](./Bilder/BucketList.png)
 
-## Funktionen
-### Lamda Funktion
+## Skripts
+### Bash-Skript
+Das Bash-Skript automatisiert die Einrichtung eines AWS- Dienstes, der eine Lambda- Funktion mit zwei S3-Buckets verbindet. Die Funktion verarbeitet hochgeladene CSV-Dateien aus einem Eingangs-Bucket und speichert das Ergebnis im JSON-Format im Ausgangs-Bucket.
 
+### Ablauf des Bash-Skripts
+1. Einzigartige Namen generieren:
+Das Skript prüft, ob die Buckets eund die Lambda-Funktion bereits existieren. Falls ja, wird ein Suffix hinzugefügt , bis eindeutige Namen gefunden werden.
 
+2. S3-Buckets erstellen:
+Zwei Buckets werden erstellt. Einen Eingangs-Bucket für die CSV-Datei und ein Ausgangs-Bucket für die JSON-Datei.
+
+3. Lambda-Funktion erstellen: 
+Eine _.Zip_-Datei wird aus der Lambda-Quellcode-Datei _(function.cs)_ erstellt. Die Lambda-Funktion wird mit dem _.Net 6_-Runtime erstellt und registriert.
+
+4. Berechtigungen konfigurieren:
+Die Lambda-Funktion erhält die Berechtigung, durch Ereignisse von S3 ausgelöst zu werden.
+
+5. S3-Trigger hinzufügen
+Ein Event-Trigger wird konfiguriert, der die Lambda-Funktion auslöst, wenn eine _.csv_-Datei in den Eingangs-Bucket hochgeladen wird.
+
+6. Abschluss:
+Die Konfiguration wird abgeschlossen, und die Namen der Buckets sowie der Lambda-Funktion werden ausgegeben.
+
+### Voraussetzungen
+- AWS CLI muss installiert und konfiguriert sein.
+- Eine IAM-Rolle _(LabRole)_ mit den erforderlichen Berechtigungen muss vorhanden sein.
+- Die Datei _function.cs_ mit der Logik der Lambda-Funktion muss bereitliegen.
+
+### Parameter
+- _bucket1original_ und _bucket2original_: Basisnamen für die Eingangs- und Ausgangs-Buckets.
+- _functionNameoriginal_: Basisname der Lambda-Funktion.
+- _region_: AWS-Region, in der die Ressourcen erstellt werden.
+
+### Wichtige Funktionen
+- _create_bucket_: Erstellt S3-Buckets und wartet, bis sie verfügbar sind.
+- _aws lambda create-function_: Registriert die Lambda-Funktion mit der hochgeladenen _.zip_-Datei.
+- _aws s3api put-bucket-notification-configuration_: Fügt dem Eingangs-Bucket einen Trigger hinzu.
+
+### Lambda Funktion
+Die Funktion liest eine CSV-Datei aus einem S3-Bucket, wandelt diese in JSON um und speichert das Ergebnis in einem anderen S3-Bucket.
+
+### Ablauf der Lambda Funktion
+1. Trigger:
+Die Funktion wird durch ein S3-Event gestartet, wenn eine Datei in den Eingangs-Bucket _(input-bucket346)_ hochgeladen wird.
+
+2. Lesen der CSV-Datei:
+Mit _GetOBjectAsync_ wird die Datei aus dem Eingangs-Bucket geladen und zeilenweise verarbeitet. Die erste Zeile dient als Header.
+
+3. Konvertierung:
+Jede Zeile wird basierend auf den Headern in ein JSON-Objekt umgewandelt. Das JSON wird formatiert gespeichert.
+
+4. Speicherung der JSON-Datei:
+Mit _PutObjektAsync_ wird die JSON-Datei in den Ausgangs-Bucket _(output-bucket346)_ hochgeladen. Der Dateiname wird um _.json_ erweitert.
+
+### Voraussetzungen 
+- S3-Buckets
+  - Eingangs-Bucket: _input-bucket346_
+  - Ausgangs-Bucket: _output-bucket346_
+
+- Berechtigungen
+  - _s3:GetObject_ für den Eingangs-Bucket
+  - _s3:PutObject_ für den Ausgangs-Bucket
+
+### Fazit
+Elisa hat die Lambda-Funktion erstell. Sie hat sich für die Programmiersprache C# entschieden da sie sich damit schon ein wenig auskennt. Die nötigen Informationen hat sie im Internet recherchiert und aus eigener Erfahrungen.
 ## Prozess
 ### Arbeitsverteilung
 Wir haben uns die Aufgaben untereinander aufgeteilt. Anika ist für das bash Skript verantwortlich, Elisa für die Lambda Funktion und Emilija für die Dokumentation. 
@@ -80,7 +141,6 @@ Ich fand das Projekt spannend, und es hat mir definitiv geholfen, das Thema noch
 Ich war für die gesamte Dokumentation des Projekts zuständig und habe gemeinsam mit Anika die Buckets erstellt. Dabei fiel es mir manchmal etwas schwer, die Dokumentation zu schreiben, da ich nicht alle Schritte im Detail mitverfolgt habe. Um sicherzustellen, dass die Dokumentation vollständig und korrekt ist, habe ich regelmässig nachgefragt und hilfreiches Feedback erhalten, das mir dabei geholfen hat, die Dokumentation zu verbessern und zu vervollständigen.
 
 Ich habe gelernt, wie wichtig es ist, alles im Team abzusprechen und nachzufragen, wenn man nicht weiterkommt. Insgesamt hat mir das gesamte Projekt sehr viel Spass gemacht. Es war eine tolle Erfahrung, bei der ich mein Wissen erweitern konnte und das Thema durch die praktische Arbeit besser verstanden habe.
-
 
 ### spöter mömmer da no schöner mache
 dotnet add package AWSSDK.S3
