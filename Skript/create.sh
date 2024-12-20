@@ -16,7 +16,7 @@ echo "Einzigartige Namen für Buckets und Lambda-Funktion werden gesucht..."
 i=-1
 while true; do
     i=$((i + 1))
-    if [ "$i" -eq 0]; then
+    if [ "$i" -eq 0 ]; then
         bucket1="$bucket1original"
         bucket2="$bucket2original"
         functionName="$functionNameoriginal"
