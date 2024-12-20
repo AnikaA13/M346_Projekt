@@ -52,7 +52,7 @@ _Kursiv_
 
 3. Repository mit git klonen oder als Zip herunterladen und entzippen.
 
-4. [Hier.](https://docs.aws.amazon.com/de_de/cli/latest/userguide/getting-started-install.html) in der Konsole aufrufen. Den rest erledigt das Skript.
+4. [Hier.](./Skript/create.sh) in der Konsole aufrufen. Den rest erledigt das Skript.
 
 ## Buckets
 
@@ -129,6 +129,12 @@ Mit _PutObjektAsync_ wird die JSON-Datei in den Ausgangs-Bucket _(output-bucket3
 
 ### Fazit
 Elisa hat die Lambda-Funktion erstell. Sie hat sich für die Programmiersprache C# entschieden da sie sich damit schon ein wenig auskennt. Die nötigen Informationen hat sie im Internet recherchiert und aus eigener Erfahrungen.
+
+## Tests
+### Test.csv
+In der _Test.csv_-Datei befinden sich unsere Informationen die wir benutzen um das ganze zu Testen.
+
+![Inhalt Test.csv](./Bilder/Test.csv.png)
 
 ## Prozess
 ### Arbeitsverteilung
