@@ -101,9 +101,19 @@ aws s3api put-bucket-notification-configuration \
 
 echo "S3-Trigger wurde konfiguriert"
 
+
+# Namen der Komponenten in Datei speichern
+echo "bucket1=$bucket1" > component_names.sh
+echo "bucket2=$bucket2" >> component_names.sh
+echo "functionName=$functionName" >> component_names.sh
+echo "region=$region" >> component_names.sh
+
+
 # Abschlussmeldung
 echo ""
 echo "Csv2Json-Service wurde erfolgreich eingerichtet!"
 echo "In-Bucket: $bucket1"
 echo "Out-Bucket: $bucket2"
 echo "Lambda-Funktion: $functionName"
+
+./../Tests/test.sh
