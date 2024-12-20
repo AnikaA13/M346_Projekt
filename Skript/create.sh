@@ -4,6 +4,7 @@
 bucket1original="csv-to-json-in"
 bucket2original="csv-to-json-out"
 functionNameoriginal="Csv2JsonFunction"
+layerName="Csv2JsonLayer"
 region="us-east-1"
 accountId=$(aws sts get-caller-identity --query "Account" --output text)
 
@@ -35,6 +36,7 @@ done
 
 echo "Gefunden: $bucket1, $bucket2, $functionName"
 
+# Buckets erstellen
 # Buckets erstellen
 create_bucket() {
     aws s3 mb "s3://$1" &>/dev/null && echo "Bucket \"$1\" wurde erstellt"

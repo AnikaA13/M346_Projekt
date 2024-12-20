@@ -4,9 +4,10 @@
 source component_names.sh
 
 # CSV-Datei hochladen
-csvFile="test.csv"
+csvFilePath="../Tests/Test.csv"
+csvFile="Test.csv"
 s3CsvFile="s3://$bucket1/$csvFile"
-aws s3 cp "$csvFile" "$s3CsvFile" || { echo "Fehler beim Hochladen der CSV-Datei"; exit 1; }
+aws s3 cp "$csvFilePath" "$s3CsvFile" || { echo "Fehler beim Hochladen der CSV-Datei"; exit 1; }
 echo "CSV-Datei wurde hochgeladen"
 
 # Warten auf die Konvertierung
