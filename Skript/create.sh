@@ -4,7 +4,6 @@
 bucket1original="csv-to-json-in"
 bucket2original="csv-to-json-out"
 functionNameoriginal="Csv2JsonFunction"
-layerName="Csv2JsonLayer"
 region="us-east-1"
 accountId=$(aws sts get-caller-identity --query "Account" --output text)
 
@@ -17,7 +16,7 @@ echo "Einzigartige Namen für Buckets und Lambda-Funktion werden gesucht..."
 i=-1
 while true; do
     i=$((i + 1))
-    if [ "$i" -eq 0 ]; then
+    if [ "$i" -eq 0]; then
         bucket1="$bucket1original"
         bucket2="$bucket2original"
         functionName="$functionNameoriginal"
@@ -36,7 +35,6 @@ done
 
 echo "Gefunden: $bucket1, $bucket2, $functionName"
 
-# Buckets erstellen
 # Buckets erstellen
 create_bucket() {
     aws s3 mb "s3://$1" &>/dev/null && echo "Bucket \"$1\" wurde erstellt"
@@ -94,20 +92,19 @@ eventJson='{
   ]
 }'
 
-
 aws s3api put-bucket-notification-configuration \
     --bucket "$bucket1" \
     --notification-configuration "$eventJson" || { echo "Fehler beim Konfigurieren des S3-Triggers"; exit 1; }
 
 echo "S3-Trigger wurde konfiguriert"
 
-
 # Namen der Komponenten in Datei speichern
 echo "bucket1=$bucket1" > component_names.sh
 echo "bucket2=$bucket2" >> component_names.sh
 echo "functionName=$functionName" >> component_names.sh
 echo "region=$region" >> component_names.sh
-
+echo "export INPUT_BUCKET=$bucket1" >> component_names.sh
+echo "export OUTPUT_BUCKET=$bucket2" >> component_names.sh
 
 # Abschlussmeldung
 echo ""

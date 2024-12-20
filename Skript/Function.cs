@@ -13,7 +13,6 @@ namespace M346
 
     public async Task FileInContainer(S3Event s3Event, ILambdaContext context)
     {
-
       var record = s3Event.Records?[0].S3;
 
       if (record == null)
@@ -22,8 +21,8 @@ namespace M346
         return;
       }
 
-      string inputBucket = "input-bucket346";
-      string outputBucket = "output-bucket346";
+      string inputBucket = Environment.GetEnvironmentVariable("INPUT_BUCKET");
+      string outputBucket = Environment.GetEnvironmentVariable("OUTPUT_BUCKET");
       string objKey = record.Object.Key;
 
       try
@@ -32,8 +31,7 @@ namespace M346
 
         using Stream responseStream = response.ResponseStream;
         using var reader = new StreamReader(responseStream);
-        //usefinde wie i csv zu json mache chan
-
+        
         var lines = new List<string>();
 
         while (!reader.EndOfStream)
