@@ -4,7 +4,6 @@
 
 - [M346-Projekt Dokumentation](#projekt-dokumentation)
   - [Inhalt](#inhalt)
-  - [Markdown Basics](#markdown-basics)
   - [Buckets](#buckets)
   - [Erste Schritte](#erste-schritte)
   - [Skripts](#skripts)
@@ -25,30 +24,11 @@
       - [Persönliche Reflexion Anika](#persönliche-reflexion-anika)
       - [Persönliche Reflexion Emilija](#persönliche-reflexion-emilija)
 
-## Markdown Basics
-
-### Bilder
-
-![Das ist der Alternative Text](./Bild_Pfad)
-
-### Link
-
-[Alternativer Text](https://www.markdownguide.org/basic-syntax/)
-
-### Schrift
-
-**Bold**
-_Kursiv_
-
-- Liste
-- Hallo
-- Listeninhalt
-
 ## Erste Schritte
 
 1. AWS auf der Konsole installieren. Anleitung [Hier.](https://docs.aws.amazon.com/de_de/cli/latest/userguide/getting-started-install.html)
 
-2. Mit AWS verbinden über die Konsole. Anleitung [Hier.](https://docs.aws.amazon.com/de_de/cli/latest/userguide/getting-started-install.html)
+2. Mit AWS verbinden über die Konsole. Anleitung [Hier.](https://aws.amazon.com/de/getting-started/hands-on/getting-started-with-aws-management-console/)
 
 3. Repository mit git klonen oder als Zip herunterladen und entzippen.
 
@@ -60,17 +40,17 @@ Im AWS-Lab haben wir zwei neue Buckets erstellt. Ein Bucket heisst input-bucket3
 
 ![Bucket Name](./Bilder/BucketName.png)
 
-Auf diesem Bild seht man die Allzweck-Buckets. Da sieht man genau die zwei Buckets die wir erstellt haben.
+Auf diesem Bild seht man die Allzweck-Buckets. Dort sieht man die zwei Buckets die wir erstellt haben.
 
 ![Bucket List](./Bilder/BucketList.png)
 
 ## Skripts
 ### Bash-Skript
-Das Bash-Skript automatisiert die Einrichtung eines AWS- Dienstes, der eine Lambda- Funktion mit zwei S3-Buckets verbindet. Die Funktion verarbeitet hochgeladene CSV-Dateien aus einem Eingangs-Bucket und speichert das Ergebnis im JSON-Format im Ausgangs-Bucket.
+Das Bash-Skript automatisiert die Einrichtung eines AWS- Dienstes, der eine Lambda-Funktion mit zwei S3-Buckets verbindet. Die Funktion verarbeitet hochgeladene CSV-Dateien aus dem Eingangs-Bucket und speichert das Ergebnis im JSON-Format im Ausgangs-Bucket.
 
 ### Ablauf des Bash-Skripts
 1. Einzigartige Namen generieren:
-Das Skript prüft, ob die Buckets eund die Lambda-Funktion bereits existieren. Falls ja, wird ein Suffix hinzugefügt , bis eindeutige Namen gefunden werden.
+Das Skript prüft, ob die Buckets und die Lambda-Funktion bereits existieren. Falls ja, wird ein Suffix hinzugefügt, bis eindeutige Namen gefunden werden.
 
 2. S3-Buckets erstellen:
 Zwei Buckets werden erstellt. Einen Eingangs-Bucket für die CSV-Datei und ein Ausgangs-Bucket für die JSON-Datei.
@@ -103,17 +83,24 @@ Die Konfiguration wird abgeschlossen, und die Namen der Buckets sowie der Lambda
 - _aws s3api put-bucket-notification-configuration_: Fügt dem Eingangs-Bucket einen Trigger hinzu.
 
 ### Lambda Funktion
-Die Funktion liest eine CSV-Datei aus einem S3-Bucket, wandelt diese in JSON um und speichert das Ergebnis in einem anderen S3-Bucket.
+Die Funktion liest eine CSV-Datei aus einem S3-Bucket, wandelt diese in JSON um und speichert das Ergebnis in einem anderen S3-Bucket. Damit die nötigen References zum programmieren vorhanden sind, habe ich eine Solution mit der Datei function.cs darin erstellt. In der Solution habe ich die Developer Powershell geöffnet, und habe in das Verzeichnis gewechselt, indem das cs.proj File liegt. In dem Verzeichnis habe ich dann folgende Befehle ausgeführt:
+
+dotnet add package AWSSDK.S3
+dotnet add package Amazon.Lambda.Core
+dotnet add package Amazon.Lambda.S3Events
+dotnet add package Amazon.Lambda.Serialization.SystemTextJson
+
+Nachdem ich diese Befehle ausgeführt hatte, waren alle Eventhandler und Objekte, welche ich zum Programmieren brauchte vorhanden. Danach musste ich nur noch die Funktion schreiben, und sie Anika zum Testen geben.
 
 ### Ablauf der Lambda Funktion
 1. Trigger:
-Die Funktion wird durch ein S3-Event gestartet, wenn eine Datei in den Eingangs-Bucket _(input-bucket346)_ hochgeladen wird.
+Die Funktion wird durch ein S3-Event ausgelöst, wenn eine Datei in den Eingangs-Bucket _(input-bucket346)_ hochgeladen wird.
 
 2. Lesen der CSV-Datei:
 Mit _GetOBjectAsync_ wird die Datei aus dem Eingangs-Bucket geladen und zeilenweise verarbeitet. Die erste Zeile dient als Header.
 
 3. Konvertierung:
-Jede Zeile wird basierend auf den Headern in ein JSON-Objekt umgewandelt. Das JSON wird formatiert gespeichert.
+Jede Zeile wird basierend auf den Headern und den Trennzeichen in ein JSON-Objekt umgewandelt. Das JSON wird formatiert gespeichert.
 
 4. Speicherung der JSON-Datei:
 Mit _PutObjektAsync_ wird die JSON-Datei in den Ausgangs-Bucket _(output-bucket346)_ hochgeladen. Der Dateiname wird um _.json_ erweitert.
@@ -158,11 +145,3 @@ Ich fand das Projekt spannend, und es hat mir definitiv geholfen, das Thema noch
 Ich war für die gesamte Dokumentation des Projekts zuständig und habe gemeinsam mit Anika die Buckets erstellt. Dabei fiel es mir manchmal etwas schwer, die Dokumentation zu schreiben, da ich nicht alle Schritte im Detail mitverfolgt habe. Um sicherzustellen, dass die Dokumentation vollständig und korrekt ist, habe ich regelmässig nachgefragt und hilfreiches Feedback erhalten, das mir dabei geholfen hat, die Dokumentation zu verbessern und zu vervollständigen.
 
 Ich habe gelernt, wie wichtig es ist, alles im Team abzusprechen und nachzufragen, wenn man nicht weiterkommt. Insgesamt hat mir das gesamte Projekt sehr viel Spass gemacht. Es war eine tolle Erfahrung, bei der ich mein Wissen erweitern konnte und das Thema durch die praktische Arbeit besser verstanden habe.
-
-### spöter mömmer da no schöner mache
-dotnet add package AWSSDK.S3
-dotnet add package Amazon.Lambda.Core
-dotnet add package Amazon.Lambda.S3Events
-dotnet add package Amazon.Lambda.Serialization.SystemTextJson
-
-in datei von Projekt einfügen damit nötige references für code gemacht werden können
