@@ -4,7 +4,6 @@
 
 - [M346-Projekt Dokumentation](#projekt-dokumentation)
   - [Inhalt](#inhalt)
-  - [Markdown Basics](#markdown-basics)
   - [Buckets](#buckets)
   - [Erste Schritte](#erste-schritte)
   - [Skripts](#skripts)
@@ -25,30 +24,11 @@
       - [Persönliche Reflexion Anika](#persönliche-reflexion-anika)
       - [Persönliche Reflexion Emilija](#persönliche-reflexion-emilija)
 
-## Markdown Basics
-
-### Bilder
-
-![Das ist der Alternative Text](./Bild_Pfad)
-
-### Link
-
-[Alternativer Text](https://www.markdownguide.org/basic-syntax/)
-
-### Schrift
-
-**Bold**
-_Kursiv_
-
-- Liste
-- Hallo
-- Listeninhalt
-
 ## Erste Schritte
 
 1. AWS auf der Konsole installieren. Anleitung [Hier.](https://docs.aws.amazon.com/de_de/cli/latest/userguide/getting-started-install.html)
 
-2. Mit AWS verbinden über die Konsole. Anleitung [Hier.](https://docs.aws.amazon.com/de_de/cli/latest/userguide/getting-started-install.html)
+2. Mit AWS verbinden über die Konsole. Anleitung [Hier.](https://aws.amazon.com/de/getting-started/hands-on/getting-started-with-aws-management-console/)
 
 3. Repository mit git klonen oder als Zip herunterladen und entzippen.
 
